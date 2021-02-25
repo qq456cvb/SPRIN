@@ -3,6 +3,8 @@
 ## Overview
 This repository is the Pytorch implementation of [PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features](https://arxiv.org/pdf/2102.12093.pdf), which is an improved version of [our previous work](https://github.com/qq456cvb/PRIN).
 
+## Quantative results when tested under arbitrary SO(3) rotation
+
 ## Dependencies
 * [hydra](https://hydra.cc/) is required for configuration.
 
