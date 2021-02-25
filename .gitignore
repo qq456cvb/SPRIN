@@ -1,0 +1,4 @@
+*.pt
+__pycache__/
+0.001-0/
+shapenet_part_seg_hdf5_data

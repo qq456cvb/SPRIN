@@ -1,0 +1,10 @@
+lr: 1e-3
+batch_size: 12
+max_epoch: 251
+fps_n: 128
+npoints: 1024
+weight_decay: 0
+resume_path: ""
+hydra:
+  run:
+    dir: sprin/${lr}-${weight_decay}
