@@ -12,7 +12,7 @@ This repository is the Pytorch implementation of [PRIN/SPRIN: On Extracting Poin
 ## Dataset and pretrained weights
 * Download ShapeNet part segmentation dataset from https://shapenet.cs.stanford.edu/media/​shapenet_part_seg_hdf5_data.zip
 * Pretrained weights for SPRIN can be downloaded from https://drive.google.com/file/d/1ZwN0bJ3UgCJheqYcUrEZyHIH8tEgk3cR/view?usp=sharing
-* Pretrained weights for PRIN can be downloaded from 
+* Pretrained weights for PRIN can be downloaded from https://drive.google.com/file/d/116c80nvL6jAK4T75d5IMudgI8KRcMFa0/view?usp=sharing
 
 ## Train and Test for PRIN/SPRIN
 Please refer to README under folder ``prin`` and ``sprin``.
