@@ -8,26 +8,14 @@ This repository is the Pytorch implementation of [PRIN/SPRIN: On Extracting Poin
 
 ## Feature Matching Results for PRIN
 ![Matching](figures/retrieval.jpg)
-## Dependencies
-* [hydra](https://hydra.cc/) is required for configuration.
 
 ## Dataset and pretrained weights
 * Download ShapeNet part segmentation dataset from https://shapenet.cs.stanford.edu/media/​shapenet_part_seg_hdf5_data.zip
-* Pretrained weights for SPRIN can be downloaded from
-https://drive.google.com/file/d/1ZwN0bJ3UgCJheqYcUrEZyHIH8tEgk3cR/view?usp=sharing
-## Train/Test
-Once the dataset is placed under the root directory, just run
-```
-python sprin/train.py
-```
-for training, and 
-```
-python sprin/train.py
-```
-for testing.
+* Pretrained weights for SPRIN can be downloaded from https://drive.google.com/file/d/1ZwN0bJ3UgCJheqYcUrEZyHIH8tEgk3cR/view?usp=sharing
+* Pretrained weights for PRIN can be downloaded from 
 
-## TODOs
-[ ] Code for improved PRIN and ModelNet40 classification.
+## Train and Test for PRIN/SPRIN
+Please refer to README under folder ``prin`` and ``sprin``.
 
 ## License
 MIT

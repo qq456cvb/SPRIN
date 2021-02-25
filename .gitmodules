@@ -1,0 +1,3 @@
+[submodule "s2cnn"]
+	path = s2cnn
+	url = https://github.com/qq456cvb/s2cnn

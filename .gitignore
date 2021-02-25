@@ -1,4 +1,9 @@
 *.pt
 __pycache__/
 0.001-0/
+32-NRAR/
 shapenet_part_seg_hdf5_data
+cache/
+outputs/
+*.pkl
+build/
