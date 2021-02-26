@@ -7,3 +7,4 @@ cache/
 outputs/
 *.pkl
 build/
+.vscode/

@@ -73,8 +73,8 @@ def main(cfg):
     if len(cfg.resume_path) > 0:
         net.load_state_dict(torch.load(hydra.utils.to_absolute_path(cfg.resume_path)))
     opt = radam.RAdam(net.parameters(), cfg.lr, weight_decay=cfg.weight_decay)
-    pcs_train, segs_centered_train, segs_train = read_data(hydra.utils.to_absolute_path("shapenet_part_seg_hdf5_data/ply_data_train*"))
-    pcs_test, segs_centered_test, segs_test = read_data(hydra.utils.to_absolute_path("shapenet_part_seg_hdf5_data/ply_data_test*"))
+    pcs_train, segs_centered_train, segs_train = read_data(hydra.utils.to_absolute_path('shapenet_part_seg_hdf5_data'), r'ply_data_(train|val).*\.h5')
+    pcs_test, segs_centered_test, segs_test = read_data(hydra.utils.to_absolute_path('shapenet_part_seg_hdf5_data'), r'ply_data_test.*\.h5')
     
     print(len(pcs_train))
     print(len(pcs_test))

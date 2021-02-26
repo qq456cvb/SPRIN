@@ -4,6 +4,7 @@ import os
 import h5py
 from scipy.stats import special_ortho_group
 from glob import glob
+import re
 
 seg_classes = {'Earphone': [16, 17, 18], 'Motorbike': [30, 31, 32, 33, 34, 35], 'Rocket': [41, 42, 43], 'Car': [8, 9, 10, 11], 'Laptop': [28, 29], 'Cap': [6, 7], 'Skateboard': [44, 45, 46], 'Mug': [36, 37], 'Guitar': [19, 20, 21], 'Bag': [4, 5], 'Lamp': [24, 25, 26, 27], 'Table': [47, 48, 49], 'Airplane': [0, 1, 2, 3], 'Pistol': [38, 39, 40], 'Chair': [12, 13, 14, 15], 'Knife': [22, 23]}
 class_names = list(seg_classes.keys())
@@ -15,7 +16,7 @@ for cat, labels in seg_classes.items():
         seg_label_to_cat[label] = cat
 
 
-def read_data(path):
+def read_data(dir_name, path):
     def read(filepath):
         with h5py.File(filepath, 'r') as fi:
             pcs = fi['data'][:]
@@ -26,8 +27,8 @@ def read_data(path):
                 pid[i] -= seg_label_delta[c[0]]
             return pcs, pid, fi['pid'][:]
     Q = []
-    for f in glob(path):
-        if f.endswith('.h5'):
+    for f in glob(os.path.join(dir_name, '*')):
+        if re.search(path, f):
             Q.append(read(f))
     pcds, pids, origin_pids = [], [], []
     for pcd, pid, lab in Q:
