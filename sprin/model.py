@@ -125,10 +125,7 @@ class Neighbourhood(nn.Module):
 
     def knn_indices(self, points_target, points_query, k, stride):
         # points: [*, 3] out: [*, k // stride]
-        x_e1 = points_query.unsqueeze(-2)  # [*, Q, 1, 3]
-        x_e2 = points_target.unsqueeze(-3)  # [*, 1, T, 3]
-        dx_e = x_e1 - x_e2
-        self_dist = torch.norm(dx_e, p=2, dim=-1)  # [*, Q, T]
+        self_dist = torch.cdist(points_query, points_target)
         _, knn_indices = torch.topk(self_dist, k, -1, False, False)
         knn_indices = knn_indices[..., torch.randperm(knn_indices.size(-1))]
         return knn_indices[..., ::stride]  # [*, Q, K']
