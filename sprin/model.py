@@ -5,7 +5,6 @@ Created on Sun Jan 17 13:21:38 2021
 @author: eliphat
 """
 import os
-import h5py
 import numpy
 import torch
 import torch.nn as nn
@@ -131,9 +130,8 @@ class Neighbourhood(nn.Module):
         return knn_indices[..., ::stride]  # [*, Q, K']
 
     def knn_feat(self, feat, knn_indices):
-        uns = feat.unsqueeze(-3)
-        ex = uns.expand(feat.shape[0], knn_indices.shape[1], feat.shape[-2], feat.shape[-1])
-        return torch.gather(ex, -2, knn_indices.expand(*knn_indices.shape[:-1], feat.shape[-1]))
+        return (feat[torch.arange(feat.size(0)).unsqueeze(-1), knn_indices.flatten(1), :]
+                .reshape(feat.shape[0], knn_indices.shape[1], -1, feat.shape[-1]))
 
     def forward(self, points, in_feat, k, stride):
         # points [b, n, 3] in_feat [b, n, c_in] out [b, n, k // stride, c_in]
@@ -267,8 +265,8 @@ class SPRINCls(nn.Module):
         x3 = self.pool_2(x2)
         feat = F.relu(self.pconv_2(x2, feat, x3))
 
-        feat = F.relu(self.conv_31(x3, feat, x3))
-        feat = F.relu(self.conv_32(x3, feat, x3))
+        feat = F.relu(self.conv_31(x3[:, None], feat[:, None].expand(-1, x3.shape[1], -1, -1), x3))
+        feat = F.relu(self.conv_32(x3[:, None], feat[:, None].expand(-1, x3.shape[1], -1, -1), x3))
         feat = self.glob_3(feat)
         
         feat = torch.cat((torch.max(feat, 1)[0], torch.mean(feat, 1)), dim=1)
@@ -341,5 +339,17 @@ class SPRINSeg(nn.Module):
 
 
 if __name__ == '__main__':
-    model = SPRINCls(40, 128)
-    print("{} paramerters in total".format(sum(x.numel() for x in model.parameters())))
+    dev = 'cuda:1'
+    m = SPRINSeg(6, 128).to(dev)
+    b = 10
+    L = m(torch.randn(b, 2048, 3).to(dev), torch.zeros([b, 128]).long().to(dev), torch.zeros([b, 16]).to(dev)).sum()
+    '''with torch.profiler.profile(
+        activities=[
+            torch.profiler.ProfilerActivity.CPU
+        ],
+        record_shapes=True, profile_memory=True, with_flops=True
+    ) as p:'''
+    L.backward()
+    # print(p.key_averages().table(sort_by="cpu_memory_usage", row_limit=10, top_level_events_only=True))
+    # model = SPRINCls(40, 128)
+    # print("{} paramerters in total".format(sum(x.numel() for x in model.parameters())))
