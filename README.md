@@ -1,7 +1,7 @@
-# PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features
+# PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features (TPAMI 2021)
 
 ## Overview
-This repository is the Pytorch implementation of [PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features](https://arxiv.org/pdf/2102.12093.pdf)(TPAMI 2021), which is an improved version of [our previous work](https://github.com/qq456cvb/PRIN).
+This repository is the Pytorch implementation of [PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features](https://arxiv.org/pdf/2102.12093.pdf) (TPAMI 2021), which is an improved version of [our previous work](https://github.com/qq456cvb/PRIN).
 
 ## ShapeNet Part Segmentation results
 ![Part Segmentation](figures/part.png)
