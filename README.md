@@ -1,5 +1,7 @@
 # PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features (TPAMI 2021)
 
+## News
+- **[2022-03]** Our new sim-to-real 9D pose estimation method [CPPF](https://github.com/qq456cvb/CPPF) that leverages SPRIN *SE(3)*-invariant features is accepted to CVPR 2022.
 ## Overview
 This repository is the Pytorch implementation of [PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features](https://arxiv.org/pdf/2102.12093.pdf) (TPAMI 2021), which is an improved version of [our previous work](https://github.com/qq456cvb/PRIN).
 
