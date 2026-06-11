@@ -1,5 +1,16 @@
 # PRIN/SPRIN: On Extracting Point-wise Rotation Invariant Features (TPAMI 2021)
 
+<!-- README refined by Cursor -->
+
+## Data and Artifact Mirrors
+
+No verified Hugging Face mirror is available yet for the artifacts below; use the original sources until a complete mirror is uploaded.
+
+Original, external, or pending sources:
+- SPRIN pretrained weights: [https://drive.google.com/file/d/1ZwN0bJ3UgCJheqYcUrEZyHIH8tEgk3cR/view?usp=sharing](https://drive.google.com/file/d/1ZwN0bJ3UgCJheqYcUrEZyHIH8tEgk3cR/view?usp=sharing). Hugging Face mirror is pending because the source did not expose a retrievable public file URL during this cleanup.
+- PRIN pretrained weights: [https://drive.google.com/file/d/116c80nvL6jAK4T75d5IMudgI8KRcMFa0/view?usp=sharing](https://drive.google.com/file/d/116c80nvL6jAK4T75d5IMudgI8KRcMFa0/view?usp=sharing). Hugging Face mirror is pending because the source did not expose a retrievable public file URL during this cleanup.
+- ShapeNet part segmentation data: [https://shapenet.cs.stanford.edu/media/shapenet_part_seg_hdf5_data.zip](https://shapenet.cs.stanford.edu/media/shapenet_part_seg_hdf5_data.zip). third-party ShapeNet-derived dataset; kept as external source
+
 ## News
 - **[2022-03]** Our new sim-to-real 9D pose estimation method [CPPF](https://github.com/qq456cvb/CPPF) that leverages SPRIN *SE(3)*-invariant features is accepted to CVPR 2022.
 ## Overview
