@@ -6,10 +6,10 @@
 ## Train/Test
 Once the dataset is placed under the root directory, just run
 ``
-python sprin/train.py
+python prin/train.py
 ``
 for training, and 
 ``
-python sprin/train.py
+python prin/test.py
 ``
-for testing.
+for testing (loads `prin/state79.pkl`).

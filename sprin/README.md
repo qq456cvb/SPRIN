@@ -8,6 +8,6 @@ python sprin/train.py
 ``
 for training, and 
 ``
-python sprin/train.py
+python sprin/test.py
 ``
-for testing.
+for testing (loads `sprin/epoch250.pt`).
